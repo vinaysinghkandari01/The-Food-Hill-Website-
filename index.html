@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Hill — Fresh Momos, Bold Flavors</title>
+  <meta name="description" content="Food Hill serves fresh, steaming momos crafted with love. Experience the bold flavors of our signature dumplings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🥟</span>
+      <span class="logo-text">Food Hill</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#order" class="nav-cta">Order Now</a>
+  </nav>
+    <div class="local-link" style="text-align:center; margin-top:20px;"><a href="http://localhost:8000" class="btn-primary">View on Localhost</a></div>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Est. 2018 · Handcrafted Daily</p>
+      <h1 class="hero-title">
+        The Art of<br />
+        <em>Perfect Momos</em>
+      </h1>
+      <p class="hero-subtitle">Steam-kissed. Sauce-drenched. Soul-satisfying.</p>
+      <div class="hero-cta-group">
+        <a href="#order" class="btn-primary">Order Now</a>
+        <a href="#story" class="btn-ghost">Our Story ↓</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to experience</span>
+      <div class="scroll-arrow">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SCROLL ANIMATION ═══════════════ -->
+  <section id="scroll-section">
+    <div id="sticky-container">
+  <div id="scroll-header" class="scroll-header">
+
+  </div>
+      <canvas id="animation-canvas"></canvas>
+      <div class="canvas-overlay" id="canvas-overlay">
+        <!-- Phase 1: Steam intro -->
+        <div class="overlay-phase" id="phase-1">
+          <div class="phase-badge">Pure · Fresh · Steamed</div>
+          <h2>Born in<br /><span class="gradient-text">Steam</span></h2>
+          <p>Every momo starts its journey wrapped in warmth — delicate dough enveloping rich, spiced filling, kissed by rising steam.</p>
+        </div>
+        <!-- Phase 2: Sauce -->
+        <div class="overlay-phase" id="phase-2">
+          <div class="phase-badge">Bold · Fiery · Unforgettable</div>
+          <h2>Ignited by<br /><span class="gradient-text">Sauce</span></h2>
+          <p>Our signature chili chutney doesn't just complement — it transforms. A fiery cascade that makes every bite legendary.</p>
+        </div>
+        <!-- Phase 3: Plated -->
+        <div class="overlay-phase" id="phase-3">
+          <div class="phase-badge">Glazed · Plated · Perfect</div>
+          <h2>Served with<br /><span class="gradient-text">Pride</span></h2>
+          <p>Glazed to golden perfection, garnished with sesame and scallions. A dish worthy of every craving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LOADING OVERLAY ═══════════════ -->
+
+
+  <!-- ═══════════════ STORY ═══════════════ -->
+  <section id="story">
+    <div class="section-inner">
+      <p class="section-eyebrow">Who We Are</p>
+      <h2 class="section-title">A Passion Wrapped in <em>Every Fold</em></h2>
+      <div class="story-grid">
+        <div class="story-card">
+          <div class="story-icon">🏔️</div>
+          <h3>From the Hills</h3>
+          <p>Inspired by traditional Himalayan recipes passed down through generations, our momos carry the soul of the mountains.</p>
+        </div>
+        <div class="story-card story-card--featured">
+          <div class="story-icon">👨‍🍳</div>
+          <h3>Handcrafted Daily</h3>
+          <p>Every single momo is hand-folded each morning using fresh ingredients sourced from local farms. No shortcuts, ever.</p>
+        </div>
+        <div class="story-card">
+          <div class="story-icon">🌶️</div>
+          <h3>Bold Flavors</h3>
+          <p>Our signature sauces are slow-cooked with 12 spices, creating an explosion of flavor that keeps you coming back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MENU ═══════════════ -->
+  <section id="menu">
+    <div class="section-inner">
+      <p class="section-eyebrow">Our Specialties</p>
+      <h2 class="section-title">The <em>Menu</em></h2>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-emoji">🥟</div>
+          <div class="menu-info">
+            <h3>Classic Steam Momos</h3>
+            <p>Juicy filling, delicate wrapper, pure simplicity.</p>
+            <span class="menu-tag">Bestseller</span>
+          </div>
+          <div class="menu-price">₹120</div>
+        </div>
+        <div class="menu-card menu-card--hot">
+          <div class="menu-emoji">🌶️</div>
+          <div class="menu-info">
+            <h3>Chilli Momo</h3>
+            <p>Tossed in our legendary fiery chili sauce.</p>
+            <span class="menu-tag menu-tag--spicy">🔥 Spicy</span>
+          </div>
+          <div class="menu-price">₹150</div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-emoji">🍯</div>
+          <div class="menu-info">
+            <h3>Gravy Momo</h3>
+            <p>Slow-simmered rich tomato-based gravy bath.</p>
+            <span class="menu-tag">Chef's Pick</span>
+          </div>
+          <div class="menu-price">₹160</div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-emoji">🥬</div>
+          <div class="menu-info">
+            <h3>Veg Momo</h3>
+            <p>Garden-fresh veggies and aromatic spices.</p>
+            <span class="menu-tag menu-tag--veg">🌱 Veg</span>
+          </div>
+          <div class="menu-price">₹110</div>
+        </div>
+        <div class="menu-card menu-card--hot">
+          <div class="menu-emoji">🔥</div>
+          <div class="menu-info">
+            <h3>Tandoori Momo</h3>
+            <p>Smoky, charred, marinated and flame-kissed.</p>
+            <span class="menu-tag menu-tag--spicy">🔥 New</span>
+          </div>
+          <div class="menu-price">₹180</div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-emoji">🧀</div>
+          <div class="menu-info">
+            <h3>Cheese Momo</h3>
+            <p>Melted cheese inside a golden steamed pocket.</p>
+            <span class="menu-tag">Crowd Fave</span>
+          </div>
+          <div class="menu-price">₹170</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ORDER / CTA ═══════════════ -->
+  <section id="order">
+    <div class="order-inner">
+      <p class="section-eyebrow" style="color: rgba(255,255,255,0.6)">Ready to Indulge?</p>
+      <h2 class="order-title">Your Momos Are<br /><em>Waiting</em></h2>
+      <p class="order-subtitle">Fresh, hot, and ready in minutes. Order online or visit us.</p>
+      <div class="order-buttons">
+        <a href="tel:+911234567890" class="btn-primary btn-large">📞 Call to Order</a>
+        <a href="https://maps.google.com" target="_blank" class="btn-outline btn-large">📍 Find Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section id="contact">
+    <div class="section-inner contact-grid">
+      <div>
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-title" style="font-size: 2.5rem;">Connect with <em>Food Hill</em></h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>123 Momo Lane, Hill Market, New Delhi – 110001</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <span>+91 98765 43210</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <span>Mon–Sun: 11:00 AM – 10:30 PM</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <span>hello@foodhill.in</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleFormSubmit(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <textarea placeholder="Message or Special Request" rows="4"></textarea>
+        <button type="submit" class="btn-primary">Send Message 🥟</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>🥟</span> Food Hill
+      </div>
+      <p class="footer-tagline">Handcrafted momos. Bold flavors. Every day.</p>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Zomato</a>
+        <a href="#">Swiggy</a>
+      </div>
+      <p class="footer-copy">© 2026 Food Hill. Made with ❤️ and 🌶️</p>
+    </div>
+  </footer>
+
+  <script src="animation.js"></script>
+</body>
+</html>
