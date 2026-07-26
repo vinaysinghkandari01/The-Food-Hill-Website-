@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Hill – Sign In &amp; Account Portal</title>
+  <meta name="description" content="Sign in or create an account on Food Hill – experience authentic Himalayan dumplings and exclusive member rewards." />
+  <link rel="canonical" href="https://foodhill.in/auth.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Food Hill – Account Portal" />
+  <meta property="og:description" content="Access your Food Hill account, track orders, and unlock member deals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://foodhill.in/auth.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+
+  <!-- ===================== ANIMATED BACKGROUND ===================== -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+
+    <!-- 3-D floating shapes -->
+    <div class="shape shape-cube" id="shape1"></div>
+    <div class="shape shape-ring" id="shape2"></div>
+    <div class="shape shape-sphere" id="shape3"></div>
+    <div class="shape shape-pyramid" id="shape4"></div>
+    <div class="shape shape-donut" id="shape5"></div>
+  </div>
+
+  <!-- ===================== MAIN WRAPPER ===================== -->
+  <main class="auth-wrapper" id="authWrapper">
+
+    <!-- -------- LOGO / BRAND -------- -->
+    <a href="index.html" class="brand" id="brand" style="text-decoration:none" aria-label="Go to Food Hill Home">
+      <div class="brand-icon">🍔</div>
+      <span class="brand-name">Food Hill</span>
+    </a>
+
+    <!-- ===================== AUTH CARD ===================== -->
+    <div class="card-container" id="cardContainer">
+
+      <!-- -------- LOGIN PANEL -------- -->
+      <section class="panel" id="loginPanel" aria-label="Login form">
+        <div class="panel-header">
+          <h1 class="panel-title">Welcome back</h1>
+          <p class="panel-sub">Sign in to your account</p>
+        </div>
+
+        <form class="auth-form" id="loginForm" novalidate>
+
+          <!-- Email -->
+          <div class="field-group" id="lg-emailGroup">
+            <label class="field-label" for="lg-email">Email address</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <input
+                class="field-input"
+                type="email"
+                id="lg-email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+            </div>
+            <span class="field-error" id="lg-emailError" role="alert"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="field-group" id="lg-passGroup">
+            <label class="field-label" for="lg-pass">Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="field-input"
+                type="password"
+                id="lg-pass"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+              />
+              <button type="button" class="eye-btn" id="lg-eyeBtn" aria-label="Toggle password visibility">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="field-error" id="lg-passError" role="alert"></span>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn btn-primary" type="submit" id="loginBtn">
+            <span class="btn-text">Sign In</span>
+            <span class="btn-loader" aria-hidden="true"></span>
+            <span class="btn-shine" aria-hidden="true"></span>
+          </button>
+
+          <!-- Toast message area -->
+          <div class="toast" id="loginToast" role="status" aria-live="polite"></div>
+
+        </form>
+
+        <p class="switch-text">
+          Don't have an account?
+          <button class="switch-btn" id="toSignup" type="button">Create one</button>
+        </p>
+      </section><!-- /loginPanel -->
+
+      <!-- -------- SIGNUP PANEL -------- -->
+      <section class="panel panel--hidden" id="signupPanel" aria-label="Signup form">
+        <div class="panel-header">
+          <h1 class="panel-title">Create account</h1>
+          <p class="panel-sub">Join Food Hill today – it's free</p>
+        </div>
+
+        <form class="auth-form" id="signupForm" novalidate>
+
+          <!-- Full Name -->
+          <div class="field-group" id="sg-nameGroup">
+            <label class="field-label" for="sg-name">Full Name</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input
+                class="field-input"
+                type="text"
+                id="sg-name"
+                name="fullname"
+                placeholder="John Doe"
+                autocomplete="name"
+              />
+            </div>
+            <span class="field-error" id="sg-nameError" role="alert"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="field-group" id="sg-emailGroup">
+            <label class="field-label" for="sg-email">Email address</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <input
+                class="field-input"
+                type="email"
+                id="sg-email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+            </div>
+            <span class="field-error" id="sg-emailError" role="alert"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="field-group" id="sg-passGroup">
+            <label class="field-label" for="sg-pass">Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="field-input"
+                type="password"
+                id="sg-pass"
+                name="password"
+                placeholder="Min. 8 characters"
+                autocomplete="new-password"
+              />
+              <button type="button" class="eye-btn" id="sg-eyeBtn" aria-label="Toggle password visibility">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <!-- Password strength bar -->
+            <div class="strength-bar" id="sg-strengthBar" aria-hidden="true">
+              <div class="strength-fill" id="sg-strengthFill"></div>
+            </div>
+            <span class="strength-label" id="sg-strengthLabel"></span>
+            <span class="field-error" id="sg-passError" role="alert"></span>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="field-group" id="sg-confirmGroup">
+            <label class="field-label" for="sg-confirm">Confirm Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <input
+                class="field-input"
+                type="password"
+                id="sg-confirm"
+                name="confirm"
+                placeholder="Re-enter password"
+                autocomplete="new-password"
+              />
+              <button type="button" class="eye-btn" id="sg-eyeBtn2" aria-label="Toggle confirm password visibility">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="field-error" id="sg-confirmError" role="alert"></span>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn btn-primary" type="submit" id="signupBtn">
+            <span class="btn-text">Create Account</span>
+            <span class="btn-loader" aria-hidden="true"></span>
+            <span class="btn-shine" aria-hidden="true"></span>
+          </button>
+
+          <div class="toast" id="signupToast" role="status" aria-live="polite"></div>
+
+        </form>
+
+        <p class="switch-text">
+          Already have an account?
+          <button class="switch-btn" id="toLogin" type="button">Sign in</button>
+        </p>
+      </section><!-- /signupPanel -->
+
+      <!-- -------- DASHBOARD PANEL (logged in state) -------- -->
+      <section class="panel panel--hidden" id="dashPanel" aria-label="User dashboard">
+        <div class="dash-avatar" id="dashAvatar" aria-hidden="true">🍽️</div>
+        <h1 class="panel-title dash-title">You're in! 🎉</h1>
+        <p class="dash-greeting" id="dashGreeting">Loading…</p>
+        <p class="dash-email" id="dashEmail"></p>
+
+        <div class="dash-badges">
+          <span class="badge">✅ Verified</span>
+          <span class="badge badge--gold">⭐ Member</span>
+        </div>
+
+        <a href="index.html" class="btn btn-secondary">
+          <span class="btn-text">🏠 Go to Website</span>
+          <span class="btn-shine" aria-hidden="true"></span>
+        </a>
+
+        <button class="btn btn-danger" id="logoutBtn" type="button">
+          <span class="btn-text">🚪 Logout</span>
+          <span class="btn-shine" aria-hidden="true"></span>
+        </button>
+
+        <div class="toast" id="dashToast" role="status" aria-live="polite"></div>
+      </section><!-- /dashPanel -->
+
+    </div><!-- /card-container -->
+
+  </main><!-- /auth-wrapper -->
+
+  <script src="auth.js"></script>
+  <script type="module" src="firebase-auth.js"></script>
+</body>
+</html>

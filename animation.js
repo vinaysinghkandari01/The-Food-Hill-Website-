@@ -92,27 +92,36 @@
     };
   }
 
+  let ticking = false;
   const onScroll = () => {
-    const rect = scrollSection.getBoundingClientRect();
-    const scrollTop = -rect.top;
-    const sectionHeight = scrollSection.offsetHeight - window.innerHeight;
-    const progress = Math.min(Math.max(scrollTop / sectionHeight, 0), 1);
-    const frameIdx = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
-    drawFrame(frameIdx);
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        if (scrollSection) {
+          const rect = scrollSection.getBoundingClientRect();
+          const scrollTop = -rect.top;
+          const sectionHeight = Math.max(scrollSection.offsetHeight - window.innerHeight, 1);
+          const progress = Math.min(Math.max(scrollTop / sectionHeight, 0), 1);
+          const frameIdx = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * TOTAL_FRAMES));
+          drawFrame(frameIdx);
 
-    const phase = progress < 0.33 ? 1 : progress < 0.66 ? 2 : 3;
-    Object.values(phaseEls).forEach(el => el && el.classList.remove('active'));
-    if (phaseEls[phase]) phaseEls[phase].classList.add('active');
+          const phase = progress < 0.33 ? 1 : progress < 0.66 ? 2 : 3;
+          Object.values(phaseEls).forEach(el => el && el.classList.remove('active'));
+          if (phaseEls[phase]) phaseEls[phase].classList.add('active');
 
-    if (scrollHeader) {
-      if (progress >= 0.3) {
-        scrollHeader.classList.add('hidden');
-      } else {
-        scrollHeader.classList.remove('hidden');
-      }
+          if (scrollHeader) {
+            if (progress >= 0.3) {
+              scrollHeader.classList.add('hidden');
+            } else {
+              scrollHeader.classList.remove('hidden');
+            }
+          }
+
+          const topBar = document.getElementById('scroll-progress-bar');
+          if (topBar) topBar.style.width = (progress * 100) + '%';
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
-
-    const topBar = document.getElementById('scroll-progress-bar');
-    if (topBar) topBar.style.width = progress * 100 + '%';
   };
 })();
