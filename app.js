@@ -444,6 +444,11 @@
         existingOrders.unshift(newOrder);
         localStorage.setItem(ORDERS_KEY, JSON.stringify(existingOrders));
 
+        // Save order to Firebase Firestore
+        if (window.foodHillSaveOrder) {
+          window.foodHillSaveOrder(newOrder);
+        }
+
         clearCart();
 
         if (checkoutModal) checkoutModal.classList.remove('open');
@@ -508,6 +513,13 @@
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.classList.add('loading');
+        }
+
+        const reservationObj = { name, phone, date, time, guests };
+
+        // Save reservation to Firebase Firestore
+        if (window.foodHillSaveBooking) {
+          window.foodHillSaveBooking(reservationObj);
         }
 
         await new Promise(r => setTimeout(r, 1200));
